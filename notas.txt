@@ -1,2 +1,7 @@
 git init
 #Inicia en git
+git add .
+#Hace un barrido 
+
+git commit -m "Mensaje"
+#Mensaje De version
