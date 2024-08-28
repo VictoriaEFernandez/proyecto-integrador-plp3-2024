@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.ayuda-body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-ayuda {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contenedor-ayuda h1 {
+    text-align: center;
+    color: #E05251;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.contenedor-ayuda h2 {
+    color: #EA5CAD;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #EA5CAD;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.contenedor-ayuda section {
+    margin-bottom: 40px;
+}
+
+.contenedor-ayuda .formulario-contacto form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-ayuda .formulario-contacto label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #EA9C88;
+}
+
+.contenedor-ayuda input[type="text"],
+.contenedor-ayuda input[type="email"],
+.contenedor-ayuda input[type="tel"],
+.contenedor-ayuda textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.contenedor-ayuda textarea {
+    resize: vertical;
+}
+
+.contenedor-ayuda button[type="submit"] {
+    background-color: #E05251;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.contenedor-ayuda button[type="submit"]:hover {
+    background-color: #C04141;
+}
+
+.contenedor-ayuda .informacion-contacto p,
+.contenedor-ayuda .consultas-rapidas ul,
+.contenedor-ayuda .faq div {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+.contenedor-ayuda .consultas-rapidas ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.contenedor-ayuda .consultas-rapidas ul li a {
+    color: #EA5CAD;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.contenedor-ayuda .consultas-rapidas ul li a:hover {
+    color: #C04141;
+}
+
+.contenedor-ayuda .faq div {
+    margin-bottom: 20px;
+}
+
+.contenedor-ayuda .faq h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #E05251;
+    font-weight: 600;
+}
+
+.contenedor-ayuda .faq p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .contenedor-ayuda {
+        padding: 15px;
+    }
+
+    .contenedor-ayuda h1 {
+        font-size: 24px;
+    }
+
+    .contenedor-ayuda h2 {
+        font-size: 20px;
+    }
+
+    .contenedor-ayuda .formulario-contacto label,
+    .contenedor-ayuda .faq h3 {
+        font-size: 16px;
+    }
+
+    .contenedor-ayuda input[type="text"],
+    .contenedor-ayuda input[type="email"],
+    .contenedor-ayuda input[type="tel"],
+    .contenedor-ayuda textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .contenedor-ayuda button[type="submit"] {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .contenedor-ayuda .informacion-contacto p,
+    .contenedor-ayuda .consultas-rapidas ul,
+    .contenedor-ayuda .faq p {
+        font-size: 14px;
+    }
+}
+

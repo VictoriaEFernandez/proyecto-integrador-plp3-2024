@@ -1,0 +1,110 @@
+/*Estilo para la cabecera*/
+/* General Body */
+.cabecerabody {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif; /* Añadir una fuente genérica como respaldo */
+}
+
+/* Cabecera Inicial */
+.cabecera-inicial {
+    background-color: #ea5cadbf;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegura que abarque todo el ancho */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Contenedor del Navegador */
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Asegura que el contenedor de navegación abarque todo el ancho */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Menú de Navegación Principal y Propietarios */
+.main-nav,
+.nav-propietarios {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+/* Elementos del Menú */
+.main-nav li,
+.nav-propietarios li {
+    margin-right: 20px;
+}
+
+/* El último elemento no tiene margen derecho */
+.main-nav li:last-child,
+.nav-propietarios li:last-child {
+    margin-right: 0;
+}
+
+/* Enlaces del Menú */
+.main-nav a,
+.nav-propietarios a {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    font-family: Verdana, sans-serif; /* Asegura que la fuente sea consistente */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Iconos de Navegación */
+.nav-icon {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+}
+
+/* Efectos de Hover */
+.main-nav a:hover,
+.nav-propietarios a:hover {
+    background-color: #e054aa;
+    transform: scale(1.05);
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav,
+    .nav-propietarios {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav li,
+    .nav-propietarios li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .main-nav a,
+    .nav-propietarios a {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .main-nav a:hover,
+    .nav-propietarios a:hover {
+        background-color: #555;
+        transform: scale(1.02);
+    }
+}
+
+/**/

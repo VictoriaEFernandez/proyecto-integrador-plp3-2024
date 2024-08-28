@@ -1,0 +1,117 @@
+
+/* Estilos de la sección de filtros */
+.seccion-filtros {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
+.seccion-filtros h2 {
+    margin-top: 0;
+}
+
+.seccion-filtros form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.seccion-filtros label {
+    margin-right: 10px;
+}
+
+.seccion-filtros input,
+.seccion-filtros select {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
+.boton-filtro {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilos de la lista de alojamientos */
+.lista-alojamientos {
+    padding: 20px;
+}
+
+.lista-alojamientos h2 {
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.tarjetas h3{
+    font-family:'New Amsterdam', sans-serif;
+    ;
+}
+.tarjeta {
+    width: 300px;
+    margin: 20px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.tarjeta h3 {
+    margin-top: 10px;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+/* Estilos del pie de página */
+.pie-alojamientos {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .tarjeta {
+        width: 100%;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion-filtros form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seccion-filtros input,
+    .seccion-filtros select {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
