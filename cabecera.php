@@ -1,5 +1,5 @@
 <body class="cabecerabody">
-<link rel="stylesheet" href="estilos-cabecera.css">
+<link rel="stylesheet" href="css/estilos-cabecera.css">
 <header class="cabecera-inicial">
     <nav>
         <ul class="main-nav">

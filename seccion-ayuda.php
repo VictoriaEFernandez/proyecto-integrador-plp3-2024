@@ -1,7 +1,7 @@
 <body class="ayuda-body">
     <title>Ayuda y Soporte</title>
+    <link rel="stylesheet" href="css/estilos-seccionayuda.css">
     <?php include 'cabecera.php'; ?>
-    <link rel="stylesheet" href="estilos-ayuda.css">
     <div class="contenedor-ayuda">
         <h1>Ayuda y Soporte</h1>
 
@@ -46,20 +46,31 @@
         <!-- Sección de preguntas frecuentes -->
         <section class="faq">
             <h2>Preguntas Frecuentes (FAQ)</h2>
-            <div>
-                <h3>¿Cómo puedo modificar mi reserva?</h3>
-                <p>Puedes modificar tu reserva desde tu perfil o contactando a nuestro soporte.</p>
-            </div>
-            <div>
-                <h3>¿Puedo obtener un reembolso?</h3>
-                <p>Los reembolsos están sujetos a las políticas de cancelación de cada alojamiento.</p>
-            </div>
-            <div>
-                <h3>¿Qué hago si tengo problemas con mi reserva?</h3>
-                <p>Si tienes problemas, contáctanos a través del formulario o llama a nuestro número de soporte.</p>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pregunta</th>
+                        <th>Respuesta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>¿Cómo puedo modificar mi reserva?</td>
+                        <td>Puedes modificar tu reserva desde tu perfil o contactando a nuestro soporte.</td>
+                    </tr>
+                    <tr>
+                        <td>¿Puedo obtener un reembolso?</td>
+                        <td>Los reembolsos están sujetos a las políticas de cancelación de cada alojamiento.</td>
+                    </tr>
+                    <tr>
+                        <td>¿Qué hago si tengo problemas con mi reserva?</td>
+                        <td>Si tienes problemas, contáctanos a través del formulario o llama a nuestro número de soporte.</td>
+                    </tr>
+                    <!-- Agrega más preguntas y respuestas aquí -->
+                </tbody>
+            </table>
         </section>
     </div>
-
 </body>
-</html>
+
+

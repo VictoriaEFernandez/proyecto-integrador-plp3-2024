@@ -119,6 +119,39 @@
     color: #555;
 }
 
+/* Estilos para la tabla en la sección de preguntas frecuentes */
+.contenedor-ayuda .faq table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    font-size: 16px;
+    border: 2px solid #E05251; /* Grosor del borde de la tabla */
+}
+
+.contenedor-ayuda .faq th, 
+.contenedor-ayuda .faq td {
+    border: 2px solid #E05251; /* Grosor del borde de las celdas */
+    padding: 20px; /* Aumentar el padding para mayor separación */
+    text-align: left;
+    vertical-align: top;
+}
+
+.contenedor-ayuda .faq th {
+    background-color: #E05251;
+    color: #fff;
+    font-weight: 600;
+}
+
+.contenedor-ayuda .faq td {
+    background-color: #f9f9f9;
+}
+
+.contenedor-ayuda .faq tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+
 /* Responsividad */
 @media (max-width: 768px) {
     .contenedor-ayuda {
@@ -156,5 +189,11 @@
     .contenedor-ayuda .faq p {
         font-size: 14px;
     }
-}
 
+    /* Responsividad para la tabla */
+    .contenedor-ayuda .faq table,
+    .contenedor-ayuda .faq th, 
+    .contenedor-ayuda .faq td {
+        font-size: 14px;
+    }
+}

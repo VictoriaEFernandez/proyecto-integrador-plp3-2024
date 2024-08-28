@@ -1,18 +1,19 @@
-/* General Styles */
+/* Estilos Generales */
 .principal-body {
     font-family: 'Dosis', sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #1b1818;
     background-color: #f5f5f5;
 }
 
-/* Header Styles */
+/* Estilos del Encabezado */
 header.inicial-header {
-    background-image: url('img/relax.jpeg');
+    background-image: url('../img/relax.jpeg');
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: #322b2b;
+    font-weight: bold;
     text-align: center;
     padding: 60px 20px;
 }
@@ -27,7 +28,7 @@ header.inicial-header h2 {
     margin: 10px 0 0;
 }
 
-/* Inicial Section */
+/* Sección Inicial */
 .inicial {
     text-align: center;
     padding: 40px;
@@ -56,7 +57,7 @@ header.inicial-header h2 {
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     margin: 0 auto;
 }
@@ -141,7 +142,7 @@ header.inicial-header h2 {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Gallery Section */
+/* Sección de Galería */
 .galeria {
     padding: 40px;
 }
@@ -170,7 +171,7 @@ header.inicial-header h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer */
+/* Pie de Página */
 .footer {
     background-color: #333;
     color: #fff;
@@ -182,23 +183,7 @@ header.inicial-header h2 {
     margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .inicial-buttons button {
-        font-size: 0.9em;
-        margin: 5px;
-    }
-
-    .inicial-busqueda {
-        padding: 15px;
-    }
-
-    .galeria-images {
-        grid-template-columns: 1fr;
-    }
-}
-/*Estios para las resenas*/
-/* Sección de Reseñas */
+/* Estilos para las Reseñas */
 .seccion-resenas {
     background-color: #f8f9fa;
     padding: 20px;
@@ -266,8 +251,23 @@ header.inicial-header h2 {
     box-shadow: 0 0 0 3px rgba(255, 182, 193, 0.5);
 }
 
-/* Responsive Design */
+/* Diseño Responsivo */
+
+/* Para pantallas de hasta 768px de ancho */
 @media (max-width: 768px) {
+    .inicial-buttons button {
+        font-size: 0.9em;
+        margin: 5px;
+    }
+
+    .inicial-busqueda {
+        padding: 15px;
+    }
+
+    .galeria-images {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
     .seccion-resenas {
         padding: 15px;
         margin: 10px;
@@ -289,6 +289,7 @@ header.inicial-header h2 {
     }
 }
 
+/* Para pantallas de hasta 480px de ancho */
 @media (max-width: 480px) {
     .seccion-resenas {
         padding: 10px;
@@ -310,7 +311,3 @@ header.inicial-header h2 {
         padding: 6px 12px;
     }
 }
-
-/**/
-
-

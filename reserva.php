@@ -1,7 +1,7 @@
 <body class="bodyreserva">
     <title>Formulario de Reserva</title>
     <?php include 'cabecera.php'; ?>
-    <link rel="stylesheet" href="estilos-reservas.css"> 
+    <link rel="stylesheet" href="css/estilos-reservas.css"> 
     <div class="contenedor-reserva">
         <h1>Formulario de Reserva</h1>
         

@@ -1,5 +1,5 @@
 <body>
-    <link rel="stylesheet" href="estilos-index.css">
+    <link rel="stylesheet" href="css/estilo-index">
             <!-- Sección para dejar reseñas -->
     <section class="seccion-resenas">
         <h2>Deja tu Reseña</h2>
