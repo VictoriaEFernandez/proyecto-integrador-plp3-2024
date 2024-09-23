@@ -22,9 +22,9 @@
             </header>
             <section class="inicial-content">
                 <div class="inicial-buttons">
-                    <button type="button">Cabañas</button>
-                    <button type="button">Hotel</button>
-                    <button type="button">Departamentos</button>
+                    <button type="button" class="alojamiento">Cabañas</button>
+                    <button type="button" class="alojamiento">Hotel</button>
+                    <button type="button" class="alojamiento">Departamentos</button>
                 </div>
                 <form class="inicial-busqueda">
                     <fieldset>
@@ -67,22 +67,25 @@
             </div>
         </section>
 
-        <!-- Galería de Imágenes -->
-        <section class="galeria">
-            <h2>Galería de Imágenes</h2>
-            <div class="galeria-images">
-                <img src="img/img1.jpeg" alt="Imagen 1">
-                <img src="img/img2.jpeg" alt="Imagen 2">
-                <img src="img/img3.jpeg" alt="Imagen 3">
-                <img src="img/img4.jpeg" alt="Imagen 4">
-            </div>
-            <?php include 'resenas.php'; ?>
-        </section>
-    </main>
+<!-- Galería de Imágenes -->
+<!-- Galería de Imágenes -->
+<section class="galeria">
+    <h2>Galería de Imágenes</h2>
+    <div class="galeria-images">
+        <img src="img/img1.jpeg" alt="Imagen 1" class="active">
+        <img src="img/img2.jpeg" alt="Imagen 2">
+        <img src="img/img3.jpeg" alt="Imagen 3">
+        <img src="img/img4.jpeg" alt="Imagen 4">
+    </div>
+    <?php include 'resenas.php'; ?>
+</section>
+
 
     <!-- Pie de Página -->
     <footer class="footer">
         <p>&copy; 2024 Oasis Urbano. Todos los derechos reservados.</p>
     </footer>
+    <script src="javascript/index.js"></script>
 </body>
+
 </html>

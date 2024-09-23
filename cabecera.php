@@ -8,7 +8,7 @@
             <li><a href="seccion-ayuda.php"><img src="iconos/ayuda.png" class="nav-icon"> Ayuda</a></li>
         </ul>
         <ul class="nav-propietarios">
-            <li><a href="#"><img src="iconos/propietarios.png" class="nav-icon"> Información de Propietarios</a></li>
+            <li><a href="propietarios-lista.php"><img src="iconos/propietarios.png" class="nav-icon"> Información de Propietarios</a></li>
         </ul>
     </nav>
 </header>

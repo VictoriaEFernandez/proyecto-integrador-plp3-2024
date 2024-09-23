@@ -31,35 +31,40 @@
             <div class="tarjetas">
                 <div class="tarjeta">
                     <img src="img/lugar1.jpeg" alt="Alojamiento 1">
-                    <h3>Nombre del Alojamiento 1</h3>
+                    <h2>Hotel</h2>
+                    <h3>Refugio Verde</h3>
                     <p>Precio: $176 por noche</p>
                     <p>Descripción breve del alojamiento.</p>
                     <a href="detalle.php" class="boton">Ver más detalles</a>
                 </div>
                 <div class="tarjeta">
                     <img src="img/lugar2.jpeg" alt="Alojamiento 2">
-                    <h3>Nombre del Alojamiento 2</h3>
+                    <h2>Departamento</h2>
+                    <h3>Luz de Luna</h3>
                     <p>Precio: $177 por noche</p>
                     <p>Descripción breve del alojamiento.</p>
                     <a href="#" class="boton">Ver más detalles</a>
                 </div>
                 <div class="tarjeta">
                     <img src="img/lugar3.jpeg" alt="Alojamiento 3">
-                    <h3>Nombre del Alojamiento 3</h3>
+                    <h2>Departamento</h2>
+                    <h3>Descanso Placentero</h3>
                     <p>Precio: $190 por noche</p>
                     <p>Descripción breve del alojamiento.</p>
                     <a href="#" class="boton">Ver más detalles</a>
                 </div>
                 <div class="tarjeta">
                     <img src="img/lugar4.jpeg" alt="Alojamiento 4">
-                    <h3>Nombre del Alojamiento 4</h3>
+                    <h2>Cabana</h2>
+                    <h3>El mirador estelar</h3>
                     <p>Precio: $200 por noche</p>
                     <p>Descripción breve del alojamiento.</p>
                     <a href="#" class="boton">Ver más detalles</a>
                 </div>
                 <div class="tarjeta">
                     <img src="img/lugar5.jpeg" alt="Alojamiento 5">
-                    <h3>Nombre del Alojamiento 5</h3>
+                    <h2>Hotel</h2>
+                    <h3>El refugio feliz</h3>
                     <p>Precio: $250 por noche</p>
                     <p>Descripción breve del alojamiento.</p>
                     <a href="#" class="boton">Ver más detalles</a>
@@ -71,4 +76,5 @@
     <footer class="pie-alojamientos">
         <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
     </footer>
+    <script src="javascript/lista-lugares.js"></script>
 </body>

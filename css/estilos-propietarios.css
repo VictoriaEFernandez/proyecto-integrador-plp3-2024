@@ -1,0 +1,17 @@
+/* estilos-propietarios.css */
+.card-img-top {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 1rem auto 0;
+    border-radius: 50%;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

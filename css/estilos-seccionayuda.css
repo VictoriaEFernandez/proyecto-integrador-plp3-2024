@@ -150,6 +150,13 @@
 .contenedor-ayuda .faq tr:nth-child(even) td {
     background-color: #f4f4f4;
 }
+.faq td:last-child {
+    display: none;
+}
+
+.faq td:last-child.visible {
+    display: table-cell;
+}
 
 
 /* Responsividad */

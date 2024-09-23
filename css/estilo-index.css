@@ -6,6 +6,11 @@
     color: #1b1818;
     background-color: #f5f5f5;
 }
+.alojamiento.active {
+    background-color: #007bff; /* Color de fondo cuando está activo */
+    color: white; /* Color del texto cuando está activo */
+}
+
 
 /* Estilos del Encabezado */
 header.inicial-header {

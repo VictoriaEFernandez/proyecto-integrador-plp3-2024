@@ -71,6 +71,8 @@
             </table>
         </section>
     </div>
+    <script src="javascript/ayuda.js"></script>
+
 </body>
 
 
