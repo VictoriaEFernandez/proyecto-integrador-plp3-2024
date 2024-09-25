@@ -18,7 +18,7 @@
                     <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 1">
                     <div class="card-body">
                         <h5 class="card-title">Ana Martínez</h5>
-                        <p class="card-text">Arquitecta especializada en diseño sostenible</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi eos natus sed, esse aperiam recusandae minima doloremque reiciendis in neque, corporis culpa enim sit placeat sapiente sunt unde id excepturi?</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     <img src="imgPropietarios/hombre.png" class="card-img-top" alt="Avatar 2">
                     <div class="card-body">
                         <h5 class="card-title">Carlos Rodríguez</h5>
-                        <p class="card-text">Ingeniero civil con enfoque en estructuras</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nostrum corrupti fuga, eaque molestias impedit maxime dolore fugit expedita dicta ex? Ab fugit provident omnis ut aperiam architecto illo neque.</p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 3">
                     <div class="card-body">
                         <h5 class="card-title">Elena Torres</h5>
-                        <p class="card-text">Diseñadora de interiores especialista en espacios comerciales</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi facere facilis doloribus, rem, mollitia quas magnam beatae libero repellendus adipisci enim voluptatum eum dicta maxime, aspernatur neque sunt voluptate cumque.</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <img src="imgPropietarios/hombre.png" class="card-img-top" alt="Avatar 4">
                     <div class="card-body">
                         <h5 class="card-title">Luis Sánchez</h5>
-                        <p class="card-text">Ingeniero eléctrico experto en domótica</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, debitis facere iusto exercitationem officiis iste reprehenderit numquam magni velit delectus sapiente ea voluptatum accusamus officia corporis, alias inventore veritatis voluptates.</p>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 5">
                     <div class="card-body">
                         <h5 class="card-title">María González</h5>
-                        <p class="card-text">Paisajista especializada en jardines urbanos</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vero modi officia at! Dolor recusandae sequi eum quaerat distinctio animi exercitationem quidem quis cum voluptatem dignissimos, accusamus vitae! Accusamus, consequuntur?</p>
                     </div>
                 </div>
             </div>
@@ -68,37 +68,7 @@
                     <img src="imgPropietarios/hombre.png" class="card-img-top" alt="Avatar 6">
                     <div class="card-body">
                         <h5 class="card-title">Roberto Díaz</h5>
-                        <p class="card-text">Arquitecto restaurador de edificios históricos</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Propietario 7 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 7">
-                    <div class="card-body">
-                        <h5 class="card-title">Patricia López</h5>
-                        <p class="card-text">Ingeniera ambiental especialista en construcciones ecológicas</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Propietario 8 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/hombre.png" class="card-img-top" alt="Avatar 8">
-                    <div class="card-body">
-                        <h5 class="card-title">Miguel Fernández</h5>
-                        <p class="card-text">Diseñador de iluminación para proyectos residenciales y comerciales</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Propietario 9 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 9">
-                    <div class="card-body">
-                        <h5 class="card-title">Sofia Vega</h5>
-                        <p class="card-text">Ingeniera acústica especializada en aislamiento sonoro</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsum eos incidunt enim fugit iure voluptatem, corrupti perferendis provident dignissimos modi labore eveniet laboriosam sed perspiciatis maxime sint ipsam repudiandae.</p>
                     </div>
                 </div>
             </div>

@@ -20,30 +20,30 @@
                 <h1>Oasis Urbano</h1>
                 <h2>Explora tu lugar para hospedarte</h2>
             </header>
-            <section class="inicial-content">
-                <div class="inicial-buttons">
-                    <button type="button" class="alojamiento">Cabañas</button>
-                    <button type="button" class="alojamiento">Hotel</button>
-                    <button type="button" class="alojamiento">Departamentos</button>
-                </div>
-                <form class="inicial-busqueda">
-                    <fieldset>
-                        <legend>Buscar Alojamiento</legend>
-                        <label for="ubicacion">Ubicación</label>
-                        <input type="text" id="ubicacion" placeholder="Ingresa Ubicación">
-                        
-                        <label for="checkin">Fecha de Entrada</label>
-                        <input type="date" id="checkin">
-                        
-                        <label for="checkout">Fecha de Salida</label>
-                        <input type="date" id="checkout">
-                        
-                        <label for="huespedes">Huéspedes</label>
-                        <input type="number" id="huespedes">
-                        <button type="submit">Buscar</button>
-                    </fieldset>
-                </form>
-            </section>
+            <form id="form-busqueda">
+                <section class="inicial-content">
+                    <div class="inicial-buttons">
+                        <button type="button" class="alojamiento">Casa</button>
+                        <button type="button" class="alojamiento">Hotel</button>
+                        <button type="button" class="alojamiento">Departamentos</button>
+                    </div>
+                    <form class="inicial-busqueda">
+                        <fieldset>
+                            <legend>Buscar Alojamiento</legend>
+                            <label for="ubicacion">Ubicación</label>
+                            <input type="text" id="ubicacion" placeholder="Ingresa Ubicación">
+                            
+                            <label for="checkin">Fecha de Entrada</label>
+                            <input type="date" id="checkin" required>
+                            
+                            <label for="checkout">Fecha de Salida</label>
+                            <input type="date" id="checkout" required>
+                            <button type="submit" class="boton">Buscar</button>
+                            </fieldset>
+                    </form>
+                </section>
+            </form>
+
         </section>
 
         <!-- Sección de Servicios -->

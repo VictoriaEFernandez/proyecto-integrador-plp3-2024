@@ -1,12 +1,36 @@
-document.querySelectorAll('.alojamiento').forEach(button => {
-    button.addEventListener('click', function() {
-        // Quitar la clase active de todos los botones
-        document.querySelectorAll('.alojamiento').forEach(btn => btn.classList.remove('active'));
-        
-        // Añadir la clase active al botón clickeado
+const botonesAlojamiento = document.querySelectorAll('.alojamiento');
+let tipoSeleccionado = '';
+
+// Manejar el clic en los botones de alojamiento
+botonesAlojamiento.forEach(boton => {
+    boton.addEventListener('click', function() {
+        // Desmarcar todos los botones
+        botonesAlojamiento.forEach(btn => btn.classList.remove('active'));
+
+        // Marcar el botón seleccionado
         this.classList.add('active');
+        tipoSeleccionado = this.innerText; // Guardar el tipo seleccionado
     });
 });
+
+// Manejar el envío del formulario
+document.getElementById('form-busqueda').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío del formulario
+
+    const ubicacion = document.getElementById('ubicacion').value;
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+
+    if (!tipoSeleccionado) {
+        alert("Por favor, selecciona un tipo de alojamiento.");
+        return;
+    }
+
+    // Redirigir a la página de resultados con los parámetros necesarios
+    window.location.href = `pagina-resultados.php?tipo=${encodeURIComponent(tipoSeleccionado)}&ubicacion=${encodeURIComponent(ubicacion)}&checkin=${encodeURIComponent(checkin)}&checkout=${encodeURIComponent(checkout)}`;
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('reseña-form');
     const enviarResenaBtn = document.getElementById('enviar-resena');
@@ -40,30 +64,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.galeria-images img');
-    let currentIndex = 0;
-
-    // Mostrar la primera imagen
-    images[currentIndex].style.display = 'block';
-
-    const showImage = (index) => {
-        images.forEach((img, i) => {
-            img.style.display = (i === index) ? 'block' : 'none';
-        });
-    };
-
-    const nextImage = () => {
-        currentIndex = (currentIndex + 1) % images.length; // Volver al inicio
-        showImage(currentIndex);
-    };
-
-    const prevImage = () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length; // Volver al final
-        showImage(currentIndex);
-    };
-
-    document.getElementById('next').addEventListener('click', nextImage);
-    document.getElementById('prev').addEventListener('click', prevImage);
-});
-//Galeeria de imagenes 

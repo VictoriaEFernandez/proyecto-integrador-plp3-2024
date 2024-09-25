@@ -1,14 +1,15 @@
+<?php include 'cabecera.php'; ?>
+
 <body class="bodyreserva">
     <title>Formulario de Reserva</title>
-    <?php include 'cabecera.php'; ?>
     <link rel="stylesheet" href="css/estilo-reserva.css">
     <div class="contenedor-reserva">
         <h1>Formulario de Reserva</h1>
-        
+
         <!-- Formulario de Datos del Cliente -->
         <section class="form-section">
             <h2>Datos del Cliente</h2>
-            <form>
+            <form id="reserva-form">
                 <label for="nombre">Nombre Completo:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
@@ -20,37 +21,33 @@
 
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required>
-            </form>
-        </section>
 
-        <!-- Medio de Pago -->
-        <section class="formulario-reserva">
-            <h2>Medio de Pago</h2>
-            <form>
                 <label for="medio-pago">Selecciona tu Medio de Pago:</label>
                 <select id="medio-pago" name="medio-pago" required>
-                    <option value="tarjeta">Tarjeta de Crédito</option>
-                    <option value="paypal">PayPal</option>
                     <option value="transferencia">Transferencia Bancaria</option>
-                    <option value="Efectivo">Efectivo</option>
+                    <option value="efectivo">Efectivo</option>
                 </select>
+
+                <!-- Botón para Confirmar la Reserva -->
+                <section class="form-section">
+                    <button type="button" id="confirmar-reserva">Confirmar Reserva</button>
+                </section>
             </form>
         </section>
 
         <!-- Listado de Productos -->
         <section class="form-section">
-            <h2>Listado de Productos</h2>
-            <p><strong>Alojamiento Reservado:</strong></p>
-            <p>Nombre del Alojamiento: Hotel Oasis</p>
-            <p>Fecha de Entrada: 01/12/2024</p>
-            <p>Fecha de Salida: 05/12/2024</p>
-            <p>Detalles: Habitación doble con vista al mar.</p>
-        </section>
-
-        <!-- Botón para Confirmar la Reserva -->
-        <section class="form-section">
-            <button type="submit">Confirmar Reserva</button>
+            <h2>Detalle de la Reserva</h2>
+            <ul id="detalle-reserva">
+                <li>Ubicación: <span id="ubicacion"></span></li>
+                <li>Tipo de Alojamiento: <span id="tipoAlojamiento"></span></li>
+                <li>Habitación: <span id="habitacion"></span></li>
+                <li>Fecha de Entrada: <span id="fechaEntrada"></span></li>
+                <li>Fecha de Salida: <span id="fechaSalida"></span></li>
+                <li>Total a Pagar: $<span id="montoTotal"></span></li>
+            </ul>
         </section>
     </div>
+
+    <script src="javascript/reservas.js"></script>
 </body>
-</html>

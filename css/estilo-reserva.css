@@ -81,6 +81,13 @@ button:hover {
     button {
         font-size: 14px;
     }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    select {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -101,10 +108,11 @@ button:hover {
     input[type="email"],
     select {
         padding: 8px;
+        font-size: 12px;
     }
 
     button {
         padding: 8px;
-        font-size: 14px;
+        font-size: 12px;
     }
 }

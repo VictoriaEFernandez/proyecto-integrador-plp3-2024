@@ -8,7 +8,7 @@
 
 /* Cabecera Inicial */
 .cabecera-inicial {
-    background-color: #ea5cadbf;
+    background-color:#b78664;
     padding: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%; /* Asegura que abarque todo el ancho */
@@ -70,7 +70,7 @@ nav {
 /* Efectos de Hover */
 .main-nav a:hover,
 .nav-propietarios a:hover {
-    background-color: #e054aa;
+    background-color: #6a462d;
     transform: scale(1.05);
 }
 

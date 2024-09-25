@@ -1,5 +1,10 @@
 
 /* Estilos de la sección de filtros */
+.alojamientos{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
 .seccion-filtros {
     background-color: #f2f2f2;
     padding: 20px;

@@ -1,0 +1,156 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6; /* Color neutro claro para resaltar los componentes */
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3 {
+    font-weight: bold;
+    color: #4a4a4a; /* Color gris oscuro para contraste */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar efecto de elevación */
+    border-radius: 12px;
+}
+
+/* Sección de Habitaciones Disponibles */
+.habitaciones-disponibles {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e6e8e5; /* Verde musgo muy claro */
+    border-radius: 8px;
+    border-left: 6px solid #8c6c3d; /* Detalle en cobre */
+}
+
+.tarjetas-habitaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05); /* Efecto de hover para resaltar tarjeta */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más profunda al hacer hover */
+}
+
+.tarjeta h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #365d3c; /* Verde musgo más oscuro */
+}
+
+.tarjeta p {
+    font-size: 1em;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+}
+
+/* Sección de más info del hotel */
+.ver-mas-info, .descripcion-habitacion {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #eae8e4; /* Marrón claro */
+    border-radius: 8px;
+    border-left: 6px solid #8c6c3d; /* Detalle en cobre */
+}
+
+.ver-mas-info h3, .descripcion-habitacion h3 {
+    color: #8c6c3d; /* Cobre para los títulos */
+}
+
+/* Estilos del botón de Reservar */
+.btn-reservar {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #365d3c; /* Verde musgo oscuro */
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background-color: #4a7349; /* Verde musgo más claro en hover */
+}
+
+.reservar {
+    text-align: center;
+    padding: 20px;
+    background-color: #eae8e4;
+    border-radius: 8px;
+}
+
+/* Diseño responsive para tabletas y pantallas más pequeñas */
+@media (max-width: 1024px) {
+    main {
+        padding: 15px;
+    }
+
+    .tarjetas-habitaciones {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste a tamaños más pequeños */
+    }
+
+    h2, h3 {
+        font-size: 1.5em; /* Tamaño más pequeño para tablets */
+    }
+}
+
+/* Diseño responsive para móviles */
+@media (max-width: 768px) {
+    .tarjetas-habitaciones {
+        grid-template-columns: 1fr; /* Colocar las tarjetas en una sola columna en pantallas pequeñas */
+    }
+
+    h2, h3 {
+        font-size: 1.2em; /* Tamaño más pequeño en pantallas móviles */
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .btn-reservar {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Diseño responsive para pantallas muy pequeñas (320px - 480px) */
+@media (max-width: 480px) {
+    h2, h3 {
+        font-size: 1em;
+    }
+
+    .tarjeta h3 {
+        font-size: 1em;
+    }
+
+    .tarjeta p {
+        font-size: 0.9em;
+    }
+
+    .btn-reservar {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
