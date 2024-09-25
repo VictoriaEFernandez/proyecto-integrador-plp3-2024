@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos-propietarios.css">
     <?php include 'cabecera.php'; ?>
+    <link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
+
 </head>
 <body>
     <div class="container mt-5">

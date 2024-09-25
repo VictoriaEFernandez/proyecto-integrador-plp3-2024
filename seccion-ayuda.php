@@ -1,3 +1,4 @@
+<link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
 <body class="ayuda-body">
     <title>Ayuda y Soporte</title>
     <link rel="stylesheet" href="css/estilos-seccionayuda.css">

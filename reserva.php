@@ -1,5 +1,5 @@
 <?php include 'cabecera.php'; ?>
-
+<link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
 <body class="bodyreserva">
     <title>Formulario de Reserva</title>
     <link rel="stylesheet" href="css/estilo-reserva.css">

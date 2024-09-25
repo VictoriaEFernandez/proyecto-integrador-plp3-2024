@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Alojamiento</title>
     <link rel="stylesheet" href="css/estilo-paginaResultados.css">
+    <link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
+
 </head>
 <body>
     <main class="resultados-container">

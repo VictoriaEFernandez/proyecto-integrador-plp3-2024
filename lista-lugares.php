@@ -1,4 +1,5 @@
 <?php include 'cabecera.php'; ?>
+<link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
 <body class="alojamientos">
     <title>Nuestros Alojamientos</title>
     <link rel="stylesheet" href="css/estilos-alojamientos.css">

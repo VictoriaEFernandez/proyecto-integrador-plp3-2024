@@ -1,4 +1,5 @@
 <body>
+    <link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/estilo-index">
     <!-- Sección para dejar reseñas -->
     <section class="seccion-resenas">
