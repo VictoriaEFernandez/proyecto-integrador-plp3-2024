@@ -1,26 +1,49 @@
-document.getElementById("formulario-filtro").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita el envío del formulario
-    
-    const tipoSeleccionado = document.getElementById("tipo").value;
-    const precioMaximo = parseInt(document.getElementById("precio").value) || Infinity; // Valor máximo o Infinity si está vacío
-    const tarjetas = document.querySelectorAll(".tarjeta"); // Selecciona todas las tarjetas de alojamiento
+document.addEventListener('DOMContentLoaded', function () {
+    // Precios
+    const precioMinInput = document.getElementById('precio-min');
+    const precioMaxInput = document.getElementById('precio-max');
+    const precioMinValue = document.getElementById('precio-min-value');
+    const precioMaxValue = document.getElementById('precio-max-value');
 
-    tarjetas.forEach(tarjeta => {
-        const precioTexto = tarjeta.querySelector("p").innerText; // Obtiene el texto del precio
-        const precio = parseInt(precioTexto.replace(/[^0-9]/g, '')); // Extrae el valor numérico del texto
+    // Actualizar los valores de precios mínimo y máximo en tiempo real
+    precioMinInput.addEventListener('input', function () {
+        precioMinValue.textContent = Number(this.value).toFixed(2);
+    });
 
-        // Obtiene el tipo del alojamiento
-        const tipoAlojamiento = tarjeta.querySelector("h2").innerText.toLowerCase();
+    precioMaxInput.addEventListener('input', function () {
+        precioMaxValue.textContent = Number(this.value).toFixed(2);
+    });
 
-        // Verifica si el tipo seleccionado es el adecuado y si el precio está dentro del rango
-        const cumpleTipo = tipoSeleccionado === "" || tipoAlojamiento === tipoSeleccionado.toLowerCase();
-        const cumplePrecio = precio <= precioMaximo;
+    // Obtener el modal y el botón de cierre
+    const modal = document.getElementById("modal");
+    const closeButton = document.querySelector(".close");
 
-        // Muestra u oculta la tarjeta según los criterios de filtrado
-        if (cumpleTipo && cumplePrecio) {
-            tarjeta.style.display = "block"; // Muestra la tarjeta
-        } else {
-            tarjeta.style.display = "none"; // Oculta la tarjeta
+    // Agregar event listeners a los botones "Ver detalles"
+    document.querySelectorAll(".boton-ver-detalles").forEach(button => {
+        button.addEventListener("click", function() {
+            // Obtener el ID del alojamiento del atributo data-id
+            const alojamientoId = this.parentElement.getAttribute("data-id");
+
+            // Hacer una solicitud AJAX para obtener los detalles del alojamiento
+            fetch(`detalles.php?id=${alojamientoId}`)
+                .then(response => response.text())
+                .then(data => {
+                    // Mostrar los detalles en el modal
+                    document.getElementById("modal-content").innerHTML = data;
+                    modal.style.display = "block";
+                });
+        });
+    });
+
+    // Agregar event listener al botón de cierre
+    closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Cerrar el modal al hacer clic fuera de él
+    window.addEventListener("click", (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
     });
 });

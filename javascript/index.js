@@ -1,36 +1,34 @@
-const botonesAlojamiento = document.querySelectorAll('.alojamiento');
-let tipoSeleccionado = '';
+// Obtener el valor de 'data-usuario-logueado' desde el HTML
+const usuarioLogueado = document.documentElement.getAttribute('data-usuario-logueado') === 'true';
 
-// Manejar el clic en los botones de alojamiento
-botonesAlojamiento.forEach(boton => {
-    boton.addEventListener('click', function() {
-        // Desmarcar todos los botones
-        botonesAlojamiento.forEach(btn => btn.classList.remove('active'));
-
-        // Marcar el botón seleccionado
-        this.classList.add('active');
-        tipoSeleccionado = this.innerText; // Guardar el tipo seleccionado
+// Si el usuario no está logueado, evitar el envío del formulario
+if (!usuarioLogueado) {
+    // Si el usuario no está logueado, mostrar mensaje de advertencia y evitar envío del formulario
+    document.getElementById('form-busqueda').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar el envío del formulario
+        alert("Para realizar búsquedas y reservas, debes iniciar sesión.");
     });
-});
+} else {
+    // Si el usuario está logueado, permitir la búsqueda
+    document.getElementById('form-busqueda').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar el envío del formulario
 
-// Manejar el envío del formulario
-document.getElementById('form-busqueda').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar el envío del formulario
+        // Obtener los valores de los campos de búsqueda
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
 
-    const ubicacion = document.getElementById('ubicacion').value;
-    const checkin = document.getElementById('checkin').value;
-    const checkout = document.getElementById('checkout').value;
+        // Validar que todos los campos estén completos
+        if (!checkin || !checkout) {
+            alert("Por favor, completa todos los campos.");
+            return; // No enviar el formulario si algún campo está vacío
+        }
 
-    if (!tipoSeleccionado) {
-        alert("Por favor, selecciona un tipo de alojamiento.");
-        return;
-    }
+        // Si todo está correcto, redirigir a la página de resultados de búsqueda sin la ubicación
+        window.location.href = `buscar_alojamientos.php?checkin=${encodeURIComponent(checkin)}&checkout=${encodeURIComponent(checkout)}`;
+    });
+}
 
-    // Redirigir a la página de resultados con los parámetros necesarios
-    window.location.href = `pagina-resultados.php?tipo=${encodeURIComponent(tipoSeleccionado)}&ubicacion=${encodeURIComponent(ubicacion)}&checkin=${encodeURIComponent(checkin)}&checkout=${encodeURIComponent(checkout)}`;
-});
-
-
+// Función para enviar la reseña
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('reseña-form');
     const enviarResenaBtn = document.getElementById('enviar-resena');
