@@ -1,3 +1,40 @@
+<?php
+// Incluir la conexión a la base de datos
+include 'conexion.php';
+
+// Obtener los datos de los proveedores
+$sql = "SELECT ProveedorId, Nombre, Apellido, Foto, Foto_blob, Email, Telefono FROM proveedores";
+$result = $conn->query($sql);
+
+$propietarios = [];
+if ($result->num_rows > 0) {
+    // Guardar los datos de los propietarios en un array
+    while($row = $result->fetch_assoc()) {
+        // Si la imagen está en BLOB, la convertimos a base64
+        if ($row['Foto_blob']) {
+            $foto_base64 = base64_encode($row['Foto_blob']);
+            $foto = 'data:image/jpeg;base64,' . $foto_base64; // Suponiendo que la imagen es JPEG
+        } else {
+            // Si no hay foto, usamos una imagen predeterminada
+            $foto = 'imgPropietarios/default.png';
+        }
+
+        // Agregamos los datos al array
+        $propietarios[] = [
+            'ProveedorId' => $row['ProveedorId'],
+            'Nombre' => $row['Nombre'],
+            'Apellido' => $row['Apellido'],
+            'Foto' => $foto,
+            'Email' => $row['Email'],
+            'Telefono' => $row['Telefono']
+        ];
+    }
+}
+
+// Cerrar la conexión
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,75 +45,33 @@
     <link rel="stylesheet" href="../css/estilos-propietarios.css">
     <?php include 'cabecera.php'; ?>
     <link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
-
 </head>
 <body>
     <div class="container mt-5">
-    <input type="text" id="filtro" placeholder="Buscar propietario por nombre..." class="form-control mb-4">
-    <div class="row row-cols-1 row-cols-md-3 g-4" id="propietarios">
-            <!-- Propietario 1 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Ana Martínez</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi eos natus sed, esse aperiam recusandae minima doloremque reiciendis in neque, corporis culpa enim sit placeat sapiente sunt unde id excepturi?</p>
-                    </div>
+        <input type="text" id="filtro" placeholder="Buscar propietario por nombre..." class="form-control mb-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="propietarios">
+            <?php if (empty($propietarios)) { ?>
+                <div class="col-12">
+                    <div class="alert alert-warning text-center">No se encontraron propietarios.</div>
                 </div>
-            </div>
-            <!-- Propietario 2 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/hombre.png" class="card-img-top" alt="Avatar 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Carlos Rodríguez</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nostrum corrupti fuga, eaque molestias impedit maxime dolore fugit expedita dicta ex? Ab fugit provident omnis ut aperiam architecto illo neque.</p>
+            <?php } else {
+                foreach ($propietarios as $propietario) {
+                    ?>
+                    <div class="col">
+                        <div class="card h-100 text-center">
+                            <img src="<?php echo $propietario['Foto']; ?>" class="card-img-top" alt="Avatar de <?php echo $propietario['Nombre']; ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $propietario['Nombre'] . ' ' . $propietario['Apellido']; ?></h5>
+                                <p class="card-text">Correo: <?php echo $propietario['Email']; ?></p>
+                                <p class="card-text">Teléfono: <?php echo $propietario['Telefono']; ?></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Propietario 3 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Elena Torres</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi facere facilis doloribus, rem, mollitia quas magnam beatae libero repellendus adipisci enim voluptatum eum dicta maxime, aspernatur neque sunt voluptate cumque.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Propietario 4 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/hombre.png" class="card-img-top" alt="Avatar 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Luis Sánchez</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, debitis facere iusto exercitationem officiis iste reprehenderit numquam magni velit delectus sapiente ea voluptatum accusamus officia corporis, alias inventore veritatis voluptates.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Propietario 5 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/mujer.png" class="card-img-top" alt="Avatar 5">
-                    <div class="card-body">
-                        <h5 class="card-title">María González</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vero modi officia at! Dolor recusandae sequi eum quaerat distinctio animi exercitationem quidem quis cum voluptatem dignissimos, accusamus vitae! Accusamus, consequuntur?</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Propietario 6 -->
-            <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="imgPropietarios/hombre.png" class="card-img-top" alt="Avatar 6">
-                    <div class="card-body">
-                        <h5 class="card-title">Roberto Díaz</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsum eos incidunt enim fugit iure voluptatem, corrupti perferendis provident dignissimos modi labore eveniet laboriosam sed perspiciatis maxime sint ipsam repudiandae.</p>
-                    </div>
-                </div>
-            </div>
+                <?php }
+            } ?>
         </div>
     </div>
+
     <script src="javascript/propietarios.js"></script>
 </body>
-
 </html>

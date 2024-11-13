@@ -1,18 +1,26 @@
-/*Estilo para la cabecera*/
 /* General Body */
 .cabecerabody {
     margin: 0;
     padding: 0;
-    font-family: Verdana, sans-serif; /* Añadir una fuente genérica como respaldo */
+    font-family: 'Poppins', sans-serif; /* Fuente moderna y limpia */
+    background-color: #f9f9f9; /* Fondo claro */
 }
 
 /* Cabecera Inicial */
 .cabecera-inicial {
-    background-color:#b78664;
-    padding: 10px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Asegura que abarque todo el ancho */
-    box-sizing: border-box; /* Incluye padding en el ancho total */
+    background-color: #2D3748; /* Color oscuro de la cabecera (paleta) */
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    box-sizing: border-box;
+    position: sticky; /* Cabecera fija al hacer scroll */
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Transición suave para cambio de color */
+}
+
+.cabecera-inicial:hover {
+    background-color: #4A5568; /* Cambio de color al pasar el ratón (paleta) */
 }
 
 /* Contenedor del Navegador */
@@ -22,8 +30,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Asegura que el contenedor de navegación abarque todo el ancho */
-    box-sizing: border-box; /* Incluye padding en el ancho total */
+    width: 100%;
 }
 
 /* Menú de Navegación Principal y Propietarios */
@@ -41,7 +48,6 @@ nav {
     margin-right: 20px;
 }
 
-/* El último elemento no tiene margen derecho */
 .main-nav li:last-child,
 .nav-propietarios li:last-child {
     margin-right: 0;
@@ -50,28 +56,30 @@ nav {
 /* Enlaces del Menú */
 .main-nav a,
 .nav-propietarios a {
-    color: #000000;
+    color: #ffffff; /* Texto blanco */
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    font-family: Verdana, sans-serif; /* Asegura que la fuente sea consistente */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Iconos de Navegación */
-.nav-icon {
-    margin-right: 8px;
-    width: 24px;
-    height: 24px;
+    padding: 12px 25px; /* Espaciado más generoso */
+    border-radius: 30px; /* Bordes más redondeados para un look más suave */
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase; /* Texto en mayúsculas para los enlaces */
 }
 
 /* Efectos de Hover */
 .main-nav a:hover,
 .nav-propietarios a:hover {
-    background-color: #6a462d;
-    transform: scale(1.05);
+    background-color: #f65855; /* Fondo naranja al pasar el ratón (paleta) */
+    transform: translateY(-5px); /* Efecto de elevación más pronunciado */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra adicional al pasar el ratón */
+}
+
+/* Iconos de Navegación */
+.nav-icon {
+    margin-right: 10px;
+    width: 22px;
+    height: 22px;
+    fill: #F6AD55; /* Color del icono (paleta) */
 }
 
 /* Diseño Responsivo */
@@ -90,21 +98,21 @@ nav {
     .main-nav li,
     .nav-propietarios li {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px; /* Mayor espacio entre los elementos del menú */
     }
 
     .main-nav a,
     .nav-propietarios a {
         width: 100%;
         text-align: left;
-        padding: 10px;
+        padding: 15px 20px; /* Más espacio para clics en móviles */
     }
 
     .main-nav a:hover,
     .nav-propietarios a:hover {
-        background-color: #555;
-        transform: scale(1.02);
+        background-color: #ed4536; /* Color más claro en hover en móviles (paleta) */
+        transform: scale(1.05); /* Efecto de ampliación para mayor interacción */
     }
 }
 
-/**/
+

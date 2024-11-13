@@ -27,38 +27,52 @@ if (!usuarioLogueado) {
         window.location.href = `buscar_alojamientos.php?checkin=${encodeURIComponent(checkin)}&checkout=${encodeURIComponent(checkout)}`;
     });
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const formResena = document.getElementById('resena-form');
+    const inputNombre = document.getElementById('name');
+    const inputResena = document.getElementById('review');
+    const selectRating = document.getElementById('rating');
 
-// Función para enviar la reseña
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('reseña-form');
-    const enviarResenaBtn = document.getElementById('enviar-resena');
-    const mensajeDiv = document.getElementById('mensaje');
+    // Validación del formulario
+    formResena.addEventListener('submit', function(e) {
+        let isValid = true;
+        let mensajeError = '';
 
-    enviarResenaBtn.addEventListener('click', (event) => {
-        // Evitar el envío del formulario
-        event.preventDefault();
-
-        // Obtener los valores de los campos
-        const nombre = form.name.value.trim();
-        const reseña = form.review.value.trim();
-        const puntuación = form.rating.value;
-
-        // Validaciones simples
-        if (nombre && reseña) {
-            // Aquí para enviar los datos al servidor
-
-            // Mostrar un mensaje de éxito
-            mensajeDiv.style.display = 'block';
-            mensajeDiv.innerText = '¡Reseña enviada con éxito!';
-            mensajeDiv.style.color = 'green';
-
-            // Limpiar el formulario
-            form.reset();
-        } else {
-            // Mostrar un mensaje de error
-            mensajeDiv.style.display = 'block';
-            mensajeDiv.innerText = 'Por favor, completa todos los campos.';
-            mensajeDiv.style.color = 'red';
+        // Validar nombre
+        if (inputNombre.value.trim().length < 2) {
+            isValid = false;
+            mensajeError = 'El nombre debe tener al menos 2 caracteres';
+            inputNombre.focus();
         }
+        // Validar reseña
+        else if (inputResena.value.trim().length < 10) {
+            isValid = false;
+            mensajeError = 'La reseña debe tener al menos 10 caracteres';
+            inputResena.focus();
+        }
+        // Validar puntuación
+        else if (!selectRating.value) {
+            isValid = false;
+            mensajeError = 'Por favor, selecciona una puntuación';
+            selectRating.focus();
+        }
+
+        // Si hay errores, prevenir el envío y mostrar mensaje
+        if (!isValid) {
+            e.preventDefault();
+            alert(mensajeError);
+        } else {
+            // Si todo está bien, asegurarse de que el formulario se envíe a index.php
+            formResena.action = 'index.php';
+        }
+    });
+
+    // Limpiar espacios en blanco
+    inputNombre.addEventListener('blur', function() {
+        this.value = this.value.trim();
+    });
+
+    inputResena.addEventListener('blur', function() {
+        this.value = this.value.trim();
     });
 });

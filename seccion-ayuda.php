@@ -1,7 +1,8 @@
 <link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
 <body class="ayuda-body">
     <title>Ayuda y Soporte</title>
-    <link rel="stylesheet" href="css/estilos-seccionayuda.css">
+    <link rel="stylesheet" href="css/estilos-ayuda.css">
+
     <?php include 'cabecera.php'; ?>
     <div class="contenedor-ayuda">
         <h1>Ayuda y Soporte</h1>
@@ -29,7 +30,7 @@
         <!-- Información de contacto -->
         <section class="informacion-contacto">
             <h2>Información de Contacto</h2>
-            <p>Correo electrónico: soporte@tuempresa.com</p>
+            <p>Correo electrónico: oasisurbanoadmin@gmail.com</p>
             <p>Teléfono: +123 456 7890</p>
         </section>
 

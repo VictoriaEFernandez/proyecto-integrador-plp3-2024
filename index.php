@@ -38,6 +38,19 @@ if (isset($_POST['ubicacion']) && isset($_POST['checkin']) && isset($_POST['chec
         $alojamientosDisponibles[] = $row;
     }
 }
+// Consulta para obtener las imágenes de la tabla Alojamiento
+$sql = "SELECT Foto_blob FROM alojamientos";
+$result = $conn->query($sql);
+
+$imagenes = [];
+if ($result->num_rows > 0) {
+    // Guardar las imágenes en el array
+    while ($row = $result->fetch_assoc()) {
+        // Convertir la imagen BLOB en base64
+        $foto_base64 = base64_encode($row['Foto_blob']);
+        $imagenes[] = 'data:image/jpeg;base64,' . $foto_base64; // Asumimos que la imagen es JPEG
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +60,7 @@ if (isset($_POST['ubicacion']) && isset($_POST['checkin']) && isset($_POST['chec
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oasis Urbano</title>
     <link rel="stylesheet" href="css/estilo-index.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -59,7 +73,7 @@ if (isset($_POST['ubicacion']) && isset($_POST['checkin']) && isset($_POST['chec
     <!-- Bienvenida al usuario -->
     <?php if ($usuarioLogueado): ?>
         <section class="bienvenida">
-            <h1>¡Bienvenido, <?php echo htmlspecialchars($nombreUsuario); ?>!</h1>
+            <h1>¡Bienvenido!</h1>
             <p>Puedes hacer tus reservas desde esta página. Explora nuestras opciones de alojamiento.</p>
             <!-- Botón de salir -->
             <a href="logout.php" class="btn-salir">Salir</a>
@@ -122,12 +136,22 @@ if (isset($_POST['ubicacion']) && isset($_POST['checkin']) && isset($_POST['chec
     <!-- Galería de Imágenes -->
     <section class="galeria">
         <h2>Galería de Imágenes</h2>
-        <div class="galeria-images">
-            <img src="img/img1.jpeg" alt="Imagen 1" class="active">
-            <img src="img/img2.jpeg" alt="Imagen 2">
-            <img src="img/img3.jpeg" alt="Imagen 3">
-            <img src="img/img4.jpeg" alt="Imagen 4">
+        <div class="container mt-5">
+        <div class="galeria-images row">
+            <?php if (empty($imagenes)) { ?>
+                <p>No hay imágenes disponibles.</p>
+            <?php } else {
+                // Mostrar las imágenes obtenidas desde la base de datos
+                foreach ($imagenes as $imagen) {
+                    ?>
+                    <div class="col-md-4 mb-4">
+                        <img src="<?php echo $imagen; ?>" alt="Imagen de Alojamiento" class="img-fluid rounded">
+                    </div>
+                    <?php
+                }
+            } ?>
         </div>
+    </div>
         <?php include 'resenas.php'; ?>
     </section>
 </main>

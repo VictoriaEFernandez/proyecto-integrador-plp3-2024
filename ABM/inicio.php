@@ -4,10 +4,7 @@ if (!isset($_SESSION['nombre'])) {
     echo "Sesión no iniciada. Redirigiendo...";
     header("Location: ../login.php");
     exit();
-} else {
-    echo "Sesión activa para: " . $_SESSION['nombre'];
-}
-
+} 
 include('../conexion.php');
 
 $nombreAdmin = $_SESSION['nombre']; // Suponiendo que el nombre del admin está almacenado en la sesión
@@ -38,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido, Admin <?php echo htmlspecialchars($nombreAdmin); ?></h1>
+        <h1>Bienvenido, Admin </h1>
         <form action="" method="post">
             <label for="funciones">Selecciona una opción:</label>
             <select name="funciones" id="funciones">
