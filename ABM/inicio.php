@@ -1,14 +1,20 @@
 <?php
 session_start();
+
+// Verificar si la sesión está iniciada
 if (!isset($_SESSION['nombre'])) {
     echo "Sesión no iniciada. Redirigiendo...";
     header("Location: ../login.php");
     exit();
 } 
+
+// Conectar a la base de datos
 include('../conexion.php');
 
-$nombreAdmin = $_SESSION['nombre']; // Suponiendo que el nombre del admin está almacenado en la sesión
+// Obtener el nombre del admin de la sesión
+$nombreAdmin = $_SESSION['nombre']; 
 
+// Procesar el formulario si se envía
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['funciones'])) {
         $funcionSeleccionada = $_POST['funciones'];
@@ -20,7 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($funcionSeleccionada == 'gestionar_propietarios') {
             header("Location: gestionarPropietarios.php");
             exit();
+        } elseif ($funcionSeleccionada == 'gestionar_reservas') { // Corregir la comparación aquí
+            header("Location: gestionarReservas.php");
+            exit();
         }
+
     }
 }
 ?>
@@ -41,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <select name="funciones" id="funciones">
                 <option value="gestionar_alquileres">Gestionar Alojamientos</option>
                 <option value="gestionar_propietarios">Gestionar Propietarios</option>
+                <option value="gestionar_reservas">Gestionar Reservas</option> <!-- Asegúrate que este valor coincida con el código -->
             </select>
             <button type="submit">Ir</button>
         </form>

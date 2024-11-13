@@ -21,7 +21,8 @@ $precioMax = isset($_GET['precio-max']) ? floatval($_GET['precio-max']) : $preci
 
 $queryAlojamientos = "SELECT a.AlojamientoId, a.Descripcion, a.Ubicacion, a.Precio, 
                               a.Foto, a.Foto_blob, p.Nombre AS ProveedorNombre, 
-                              t.Descripcion AS TipoAlojamiento
+                              t.Descripcion AS TipoAlojamiento,
+                              a.Servicios, a.Estrellas, a.Capacidad
                       FROM alojamientos a
                       INNER JOIN proveedores p ON a.ProveedorId = p.ProveedorId
                       INNER JOIN tipos_alojamientos t ON a.TipoAlojamientoId = t.TipoAlojamientoId
@@ -37,7 +38,6 @@ $resultAlojamientos = $conn->query($queryAlojamientos);
     <link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/estilos-alojamientos.css">
     <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body class="alojamientos">
     <main>
@@ -53,11 +53,11 @@ $resultAlojamientos = $conn->query($queryAlojamientos);
                 </select>
 
                 <label for="precio-min">Precio mínimo:</label>
-                <input type="input" id="precio-min" name="precio-min" min="<?php echo $precioMinimo; ?>" max="<?php echo $precioMaximo; ?>" value="">
+                <input type="number" id="precio-min" name="precio-min" min="<?php echo $precioMinimo; ?>" max="<?php echo $precioMaximo; ?>" value="">
                 <span id="precio-min-value"></span>
 
                 <label for="precio-max">Precio máximo:</label>
-                <input type="input" id="precio-max" name="precio-max" min="<?php echo $precioMinimo; ?>" max="<?php echo $precioMaximo; ?>" value="">
+                <input type="number" id="precio-max" name="precio-max" min="<?php echo $precioMinimo; ?>" max="<?php echo $precioMaximo; ?>" value="">
                 <span id="precio-max-value"></span>
 
                 <button type="submit" class="boton-filtro">Buscar</button>
@@ -65,43 +65,54 @@ $resultAlojamientos = $conn->query($queryAlojamientos);
         </section>
 
         <section class="lista-alojamientos">
-    <h2>Alojamientos Disponibles</h2>
-    <div class="alojamientos-container">
-        <?php if ($resultAlojamientos->num_rows > 0): ?>
-            <?php while ($alojamiento = $resultAlojamientos->fetch_assoc()): ?>
-                <div class="alojamiento-item" data-id="<?= $alojamiento['AlojamientoId'] ?>">
-                    <h3><?= $alojamiento['Descripcion'] ?></h3>
-                    <p><strong>Proveedor:</strong> <?= $alojamiento['ProveedorNombre'] ?></p>
-                    <p><strong>Tipo:</strong> <?= $alojamiento['TipoAlojamiento'] ?></p>
-                    <p><strong>Ubicación:</strong> <?= $alojamiento['Ubicacion'] ?></p>
-                    <p><strong>Precio:</strong> $<?= number_format($alojamiento['Precio'], 2) ?></p>
-                    <?php if ($alojamiento['Foto_blob']): ?>
-                        <img src="data:image/jpeg;base64,<?= base64_encode($alojamiento['Foto_blob']) ?>" alt="Foto del alojamiento" class="foto-alojamiento">
-                    <?php else: ?>
-                        <p>No hay foto disponible</p>
-                    <?php endif; ?>
-                    <button class="boton-ver-detalles">Ver detalles</button>
+            <h2>Alojamientos Disponibles</h2>
+            <div class="alojamientos-container">
+                <?php if ($resultAlojamientos->num_rows > 0): ?>
+                    <?php while ($alojamiento = $resultAlojamientos->fetch_assoc()): ?>
+                        <div class="alojamiento-item" data-id="<?= $alojamiento['AlojamientoId'] ?>"
+                        
+                             data-servicios="<?= htmlspecialchars(string: $alojamiento['Servicios']) ?>">
+                            <h3><?= htmlspecialchars($alojamiento['Descripcion']) ?></h3>
+                            <p><strong>Proveedor:</strong> <?= htmlspecialchars($alojamiento['ProveedorNombre']) ?></p>
+                            <p><strong>Tipo:</strong> <?= htmlspecialchars($alojamiento['TipoAlojamiento']) ?></p>
+                            <p><strong>Ubicación:</strong> <?= htmlspecialchars($alojamiento['Ubicacion']) ?></p>
+                            <p><strong>Estrellas: </strong><?= htmlspecialchars($alojamiento['Estrellas']) ?></p>
+                            <p><strong>Capacidad: </strong><?= htmlspecialchars($alojamiento['Capacidad']) ?></p>
+                            <p><strong>Servicios: </strong><?= htmlspecialchars($alojamiento['Servicios']) ?></p>
+
+                            <p><strong>Precio:</strong> $<?= number_format($alojamiento['Precio'], 2) ?></p>
+                            <?php if ($alojamiento['Foto_blob']): ?>
+                                <img src="data:image/jpeg;base64,<?= base64_encode($alojamiento['Foto_blob']) ?>" alt="Foto del alojamiento" class="foto-alojamiento">
+                            <?php else: ?>
+                                <p>No hay foto disponible</p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <p>No se encontraron alojamientos disponibles.</p>
+                <?php endif; ?>
+            </div>
+        </section>
+
+        <!-- Modal para mostrar detalles -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modal-content">
+                    <!-- Aquí se mostrará la información del alojamiento -->
                 </div>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <p>No se encontraron alojamientos disponibles.</p>
-        <?php endif; ?>
-    </div>
-</section>
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="modal-content">
-            <!-- Aquí se mostrará la información del alojamiento -->
+            </div>
         </div>
-    </div>
-</div>
+
+    </main>
 
     <footer class="pie-alojamientos">
         <p>&copy; 2024 Oasis Urbano. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="javascript/script.js"></script>
+    <!-- Script para manejar el modal -->
+    <script src="javascript/listaLugares.js"></script>
+
 </body>
 </html>
 

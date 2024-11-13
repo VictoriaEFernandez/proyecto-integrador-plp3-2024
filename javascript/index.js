@@ -1,32 +1,26 @@
-// Obtener el valor de 'data-usuario-logueado' desde el HTML
-const usuarioLogueado = document.documentElement.getAttribute('data-usuario-logueado') === 'true';
+// Escuchar el evento de envío del formulario
+document.getElementById('form-busqueda').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío del formulario
 
-// Si el usuario no está logueado, evitar el envío del formulario
-if (!usuarioLogueado) {
-    // Si el usuario no está logueado, mostrar mensaje de advertencia y evitar envío del formulario
-    document.getElementById('form-busqueda').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar el envío del formulario
-        alert("Para realizar búsquedas y reservas, debes iniciar sesión.");
-    });
-} else {
-    // Si el usuario está logueado, permitir la búsqueda
-    document.getElementById('form-busqueda').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar el envío del formulario
+    // Obtener los valores de los campos de búsqueda
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
 
-        // Obtener los valores de los campos de búsqueda
-        const checkin = document.getElementById('checkin').value;
-        const checkout = document.getElementById('checkout').value;
+    // Validar que todos los campos estén completos
+    if (!checkin || !checkout) {
+        alert("Por favor, completa todos los campos.");
+        return; // No enviar el formulario si algún campo está vacío
+    }
 
-        // Validar que todos los campos estén completos
-        if (!checkin || !checkout) {
-            alert("Por favor, completa todos los campos.");
-            return; // No enviar el formulario si algún campo está vacío
-        }
+    // Log para depurar si las fechas son correctas
+    console.log('Check-in:', checkin);
+    console.log('Check-out:', checkout);
 
-        // Si todo está correcto, redirigir a la página de resultados de búsqueda sin la ubicación
-        window.location.href = `buscar_alojamientos.php?checkin=${encodeURIComponent(checkin)}&checkout=${encodeURIComponent(checkout)}`;
-    });
-}
+    // Si todo está correcto, redirigir a la página de resultados de búsqueda
+    window.location.href = `buscar_alojamientos.php?checkin=${encodeURIComponent(checkin)}&checkout=${encodeURIComponent(checkout)}`;
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const formResena = document.getElementById('resena-form');
     const inputNombre = document.getElementById('name');

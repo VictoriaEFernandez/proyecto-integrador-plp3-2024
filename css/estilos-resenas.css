@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Sección de Reseñas
+   ========================================================================== */
+   .seccion-resenas {
+    background-color: #f7f7f7; /* Fondo claro neutro */
+    padding: 40px;
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra más prominente */
+}
+
+.seccion-resenas h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d3748; /* Texto oscuro elegante */
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Contenedor de reseñas */
+.contenedor-resenas {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Tarjetas de reseñas individuales */
+.resena-card {
+    background-color: #ffffff; /* Fondo blanco limpio */
+    border: 1px solid #e2e8f0; /* Borde suave */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resena-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Efecto de elevación */
+}
+
+/* Cabecera de cada reseña */
+.resena-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.estrellas {
+    color: #ffd700; /* Color dorado para estrellas */
+    font-size: 1.2rem;
+}
+
+.resena-header h3 {
+    font-size: 1.4rem;
+    color: #4a5568; /* Color intermedio para el nombre */
+    margin: 0;
+}
+
+/* Cuerpo de la reseña */
+.resena-body {
+    font-size: 1rem;
+    color: #718096; /* Texto gris suave */
+    line-height: 1.5;
+}
+
+/* Estilos para el formulario */
+#reseña-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formulario-resen label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+.formulario-resen input,
+.formulario-resen textarea,
+.formulario-resen select {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formulario-resen input:focus,
+.formulario-resen textarea:focus,
+.formulario-resen select:focus {
+    border-color: #6a462d; /* Color destacado en focus */
+    outline: none;
+}
+
+/* Botón */
+.boton-resenas {
+    padding: 0.8rem 2rem;
+    background-color: #762524;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center;
+}
+
+.boton-resenas:hover {
+    background-color: #4e341e;
+    transform: scale(1.05);
+}
+
+.boton-resenas:active {
+    background-color: #3c2816;
+}
+

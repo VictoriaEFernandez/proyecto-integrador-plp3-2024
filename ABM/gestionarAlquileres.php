@@ -1,5 +1,6 @@
 <?php 
 include_once('../conexion.php'); 
+include('inicio.php'); 
 
 // Verificar conexión 
 if ($conn->connect_error) { 
@@ -163,7 +164,7 @@ $tiposAlojamiento = obtenerTiposAlojamiento($conn);
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>Gestión de Alquileres</title>  
-<link rel="stylesheet" href="css/estiloGestionarAlquileres.css">  
+<link rel="stylesheet" href="css/estiloGestionarAlojamientos.css">
 </head>  
 <body>  
 <h2><?= isset($alojamiento) ? 'Editar Alquiler' : 'Gestión de Alquileres' ?></h2>  

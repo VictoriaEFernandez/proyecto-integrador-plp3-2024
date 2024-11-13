@@ -1,6 +1,7 @@
 <?php
 session_start(); // Iniciar sesión
 
+
 // Mostrar el mensaje si está presente en la URL (cuando el usuario hace clic en salir)
 if (isset($_GET['mensaje']) && $_GET['mensaje'] == 'debe_iniciar_sesion') {
     echo '<p style="color: red; font-weight: bold;">PARA HACER RESERVAS TIENES QUE ESTAR LOGEADO</p>';
@@ -23,15 +24,24 @@ if (isset($_POST['ubicacion']) && isset($_POST['checkin']) && isset($_POST['chec
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
     
-    // Consultar los alojamientos disponibles para la búsqueda
-    $sql = "SELECT a.AlojamientoId, a.Descripcion, a.Ubicacion, a.Precio, a.Capacidad, a.Foto
-            FROM alojamientos a
-            WHERE a.Ubicacion LIKE ? AND a.FechaRegistro <= ? AND a.FechaRegistro >= ?";
+// Supongamos que ya has verificado las credenciales del usuario
+$sql = "SELECT UsuarioId, Nombre FROM usuarios WHERE Email = ? AND Password = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $email, $password);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $ubicacion, $checkin, $checkout);
-    $stmt->execute();
-    $result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $_SESSION['UsuarioId'] = $row['UsuarioId']; // Guardamos el UsuarioId en la sesión
+    $_SESSION['nombre'] = $row['Nombre']; // También guardamos el nombre, si es necesario
+    // Redirigir al usuario a la página principal o al lugar que corresponda
+    header("Location: index.php");
+} else {
+    // Si no hay coincidencias, mostrar un error
+    echo "Credenciales incorrectas.";
+}
+
 
     $alojamientosDisponibles = [];
     while ($row = $result->fetch_assoc()) {
@@ -66,7 +76,7 @@ if ($result->num_rows > 0) {
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Dosis:wght@200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
 </head>
-<body class="principal-body">
+
     <!-- Cabecera -->
     <?php include 'cabecera.php'; ?>
 

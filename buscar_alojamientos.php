@@ -1,6 +1,7 @@
 <?php
 // Incluir la conexión a la base de datos
 include 'conexion.php';
+include 'cabecera.php';
 
 // Verificar si se recibieron parámetros de búsqueda
 $fecha_checkin = $_GET['checkin'] ?? '';
@@ -17,8 +18,8 @@ if (empty($fecha_checkin) || empty($fecha_checkout)) {
 $query = "SELECT a.AlojamientoId, a.Descripcion, a.Ubicacion, a.Precio, a.Capacidad, a.Foto_blob
           FROM alojamientos a
           LEFT JOIN reservas r ON a.AlojamientoId = r.AlojamientoId
-          AND (r.FechaCheckIn BETWEEN ? AND ? OR r.FechaCheckOut BETWEEN ? AND ?)
-          WHERE r.ReservaId IS NULL OR (r.FechaCheckIn > ? OR r.FechaCheckOut < ?)";
+          AND (r.FechaCheckIn < ? AND r.FechaCheckOut > ?)
+          WHERE r.ReservaId IS NULL";
 
 // Si se selecciona tipo de alojamiento, agregar a la consulta
 if (!empty($tipo_alojamiento)) {
@@ -29,7 +30,7 @@ if (!empty($tipo_alojamiento)) {
 $stmt = $conn->prepare($query);
 
 // Crear el array de parámetros
-$params = [$fecha_checkin, $fecha_checkout, $fecha_checkin, $fecha_checkout, $fecha_checkin, $fecha_checkout];
+$params = [$fecha_checkout, $fecha_checkin]; // Fechas de checkout y checkin
 
 // Si tipo de alojamiento está presente, agregarlo a los parámetros
 if (!empty($tipo_alojamiento)) {
@@ -108,4 +109,3 @@ $result = $stmt->get_result();
 // Cerrar la conexión a la base de datos
 $conn->close();
 ?>
-

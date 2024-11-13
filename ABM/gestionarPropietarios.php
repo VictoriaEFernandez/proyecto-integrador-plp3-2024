@@ -1,5 +1,6 @@
 <?php
 include_once('../conexion.php');
+include('inicio.php'); 
 
 // Agregar proveedor
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'agregar') {
@@ -83,8 +84,8 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionar Proveedores</title>
-    <link rel="stylesheet" href="css/estilosABMPropietarios.css">
+    <title>Gestionar Proveedores</title>]
+    <link rel="stylesheet" href="css/estilosGestionarPropiertarios.css">
     </head>
 <body>
 

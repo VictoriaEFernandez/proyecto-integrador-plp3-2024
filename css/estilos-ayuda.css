@@ -2,7 +2,7 @@
 
 .ayuda-body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F4F4F4;
+    background-color: #eff6ee; /* Fondo verde claro, suave */
     margin: 0;
     padding: 0;
 }
@@ -11,26 +11,30 @@
     max-width: 1200px;
     margin: 20px auto;
     padding: 30px;
-    background-color: #FFFFFF;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF; /* Fondo blanco */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); /* Sombra suave */
     border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.contenedor-ayuda:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra al pasar el ratón */
 }
 
 .contenedor-ayuda h1 {
     text-align: center;
-    color: #E05251;
-    margin-bottom: 30px;
-    font-weight: 700;
-    font-size: 36px;
+    color: #273043; /* Azul oscuro */
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 32px;
 }
 
 .contenedor-ayuda h2 {
-    color: #EA5CAD;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #EA5CAD;
-    padding-bottom: 8px;
-    font-weight: 700;
+    color: #273043; /* Azul oscuro */
+    margin-bottom: 15px;
+    font-weight: 600;
     font-size: 24px;
+    border-bottom: 2px solid #9197ae; /* Línea sutil en azul claro */
 }
 
 .contenedor-ayuda section {
@@ -38,13 +42,15 @@
 }
 
 .contenedor-ayuda .formulario-contacto form {
-    display: grid;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .contenedor-ayuda .formulario-contacto label {
+    margin-bottom: 5px;
     font-weight: 500;
-    color: #EA9C88;
+    color: #273043;
 }
 
 .contenedor-ayuda input[type="text"],
@@ -53,17 +59,22 @@
 .contenedor-ayuda textarea {
     width: 100%;
     padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #E0E0E0;
+    margin-bottom: 20px;
+    border: 1px solid #B0BEC5;
     border-radius: 8px;
+    box-sizing: border-box;
     font-size: 16px;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    background-color: #F9FAFB; /* Fondo gris suave */
+    color: #4C566A;
+    transition: background-color 0.3s ease;
 }
 
-.contenedor-ayuda input:focus, 
+.contenedor-ayuda input[type="text"]:focus,
+.contenedor-ayuda input[type="email"]:focus,
+.contenedor-ayuda input[type="tel"]:focus,
 .contenedor-ayuda textarea:focus {
-    border-color: #E05251;
-    box-shadow: 0 0 8px rgba(224, 82, 81, 0.3);
+    background-color: #ffffff; /* Fondo blanco al enfocar */
+    border-color: #273043; /* Azul oscuro al enfocar */
 }
 
 .contenedor-ayuda textarea {
@@ -71,94 +82,88 @@
 }
 
 .contenedor-ayuda button[type="submit"] {
-    background-color: #E05251;
+    background-color: #9197ae; /* Azul suave */
     color: #FFFFFF;
-    padding: 14px 22px;
+    padding: 14px 24px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 18px;
     transition: background-color 0.3s ease;
 }
 
 .contenedor-ayuda button[type="submit"]:hover {
-    background-color: #C04141;
+    background-color: #273043; /* Azul oscuro al pasar el ratón */
 }
 
 .contenedor-ayuda .informacion-contacto p,
 .contenedor-ayuda .consultas-rapidas ul,
 .contenedor-ayuda .faq div {
-    margin-bottom: 18px;
+    margin-bottom: 15px;
     font-size: 16px;
-    color: #555555;
+    color: #4C566A;
 }
 
 .contenedor-ayuda .consultas-rapidas ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.contenedor-ayuda .consultas-rapidas ul li {
-    margin-bottom: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 .contenedor-ayuda .consultas-rapidas ul li a {
-    color: #EA5CAD;
+    color: #9197ae; /* Azul suave */
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
 
 .contenedor-ayuda .consultas-rapidas ul li a:hover {
-    color: #C04141;
+    color: #273043; /* Azul oscuro al pasar el ratón */
 }
 
 .contenedor-ayuda .faq div {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .contenedor-ayuda .faq h3 {
-    font-size: 20px;
-    color: #E05251;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #273043; /* Azul oscuro */
     font-weight: 600;
 }
 
 .contenedor-ayuda .faq p {
     font-size: 16px;
-    color: #555555;
+    color: #4C566A;
 }
 
-/* Tabla moderna para preguntas frecuentes */
 .contenedor-ayuda .faq table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin-top: 20px;
     font-size: 16px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #9197ae; /* Azul suave */
 }
 
 .contenedor-ayuda .faq th, 
 .contenedor-ayuda .faq td {
-    padding: 16px;
+    border: 2px solid #9197ae; /* Azul suave */
+    padding: 14px;
     text-align: left;
 }
 
 .contenedor-ayuda .faq th {
-    background-color: #E05251;
+    background-color: #273043; /* Azul oscuro */
     color: #FFFFFF;
     font-weight: 600;
 }
 
 .contenedor-ayuda .faq td {
-    background-color: #FAFAFA;
-    border-bottom: 1px solid #E0E0E0;
+    background-color: #F9FAFB; /* Fondo gris suave */
 }
 
 .contenedor-ayuda .faq tr:nth-child(even) td {
-    background-color: #F4F4F4;
+    background-color: #EFF6EE; /* Verde muy claro */
 }
 
 @media (max-width: 768px) {
@@ -174,13 +179,27 @@
         font-size: 20px;
     }
 
-    .contenedor-ayuda input, 
+    .contenedor-ayuda .formulario-contacto label,
+    .contenedor-ayuda .faq h3 {
+        font-size: 14px;
+    }
+
+    .contenedor-ayuda input[type="text"],
+    .contenedor-ayuda input[type="email"],
+    .contenedor-ayuda input[type="tel"],
     .contenedor-ayuda textarea {
         font-size: 14px;
         padding: 10px;
     }
 
-    .contenedor-ayuda button {
-        font-size: 16px;
+    .contenedor-ayuda button[type="submit"] {
+        font-size: 14px;
+        padding: 12px 18px;
+    }
+
+    .contenedor-ayuda .informacion-contacto p,
+    .contenedor-ayuda .consultas-rapidas ul,
+    .contenedor-ayuda .faq p {
+        font-size: 14px;
     }
 }

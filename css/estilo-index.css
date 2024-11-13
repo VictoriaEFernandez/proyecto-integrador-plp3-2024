@@ -2,8 +2,8 @@
    Variables Globales
    ========================================================================== */
    :root {
-    --color-primary: #f02d3a; /* Rojo vibrante */
-    --color-primary-hover: #dd0426; /* Rojo más oscuro */
+    --color-primary: #933138; 
+    --color-primary-hover: #7e2c38; /* Rojo más oscuro */
     --color-text: #273043; /* Azul oscuro para el texto principal */
     --color-text-secondary: #9197ae; /* Gris azulado para el texto secundario */
     --color-background: #eff6ee; /* Verde claro para fondo */

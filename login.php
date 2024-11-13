@@ -109,6 +109,7 @@ if (isset($_POST['login'])) {
         // Verificar la contraseña
         if (password_verify($contrasena, $usuario['Contrasena'])) {
             // Almacenar datos del usuario en la sesión
+            $_SESSION['usuarioID'] = $usuario['UsuarioID'];  // Corregido: almacenar el UsuarioID
             $_SESSION['nombre'] = $usuario['Nombre'];
             $_SESSION['rolID'] = $usuario['RolID'];
 
@@ -136,7 +137,6 @@ if (isset($_POST['login'])) {
     $stmt->close();
 }
 
-
 // Registro de nuevo usuario
 if (isset($_POST['register'])) {
     $nombre = $_POST['Nombre'];
@@ -154,7 +154,7 @@ if (isset($_POST['register'])) {
     if ($resultado->num_rows > 0) {
         echo "<script>$('#register-error').text('El correo ya está registrado.').show();</script>";
     } else {
-        // Insertar el nuevo usuario en la base de datos
+        // Insertar el nuevo usuario en la base de datos con RolID como 1 (cliente)
         $stmt = $conn->prepare("INSERT INTO usuarios (Nombre, Apellido, CorreoElectronico, Contrasena, Telefono, RolID) VALUES (?, ?, ?, ?, ?, 1)");
         $stmt->bind_param("sssss", $nombre, $apellido, $emailNuevo, $contrasenaNueva, $telefono);
         
@@ -166,6 +166,7 @@ if (isset($_POST['register'])) {
     }
 }
 ?>
+
 
     <div class="overlay"></div>
     <div class="login-container">

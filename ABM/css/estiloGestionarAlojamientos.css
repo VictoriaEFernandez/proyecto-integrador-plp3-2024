@@ -1,0 +1,190 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo básico para el cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eff6ee;
+    padding: 20px;
+    color: #273043;
+}
+
+/* Encabezado */
+h2 {
+    color: #273043;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* Estilos para el formulario */
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #9197ae;
+    font-size: 1.1em;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #f02d3a;
+}
+
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+button {
+    background-color: #f02d3a;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #dd0426;
+    transform: scale(1.05);
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #273043;
+    color: #eff6ee;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+td img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: cover;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+    color: #f02d3a;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #dd0426;
+}
+
+/* Estilo de mensajes */
+#mensaje {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#mensaje.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#mensaje.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Estilo de la vista de edición */
+input[type="hidden"] {
+    display: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+    }
+
+    button {
+        width: auto;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

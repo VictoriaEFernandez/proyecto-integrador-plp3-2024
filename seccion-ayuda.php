@@ -1,16 +1,15 @@
-<link rel="icon" href="iconos/flavicon.png" type="image/x-icon">
 <body class="ayuda-body">
     <title>Ayuda y Soporte</title>
     <link rel="stylesheet" href="css/estilos-ayuda.css">
-
     <?php include 'cabecera.php'; ?>
+
     <div class="contenedor-ayuda">
         <h1>Ayuda y Soporte</h1>
 
         <!-- Formulario de contacto -->
-        <section class="formulario-contacto">
+        <section class="formulario-contacto" id="formulario-contacto">
             <h2>¿Necesitas ayuda? Contáctanos</h2>
-            <form action="#" method="post">
+            <form id="contact-form">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
@@ -25,6 +24,12 @@
 
                 <button type="submit">Enviar</button>
             </form>
+        </section>
+
+        <!-- Mensaje de confirmación de envío -->
+        <section id="confirmacion" style="display: none;">
+            <h2>¡Gracias por tu mensaje!</h2>
+            <p>Nos pondremos en contacto contigo pronto.</p>
         </section>
 
         <!-- Información de contacto -->
@@ -68,13 +73,41 @@
                         <td>¿Qué hago si tengo problemas con mi reserva?</td>
                         <td>Si tienes problemas, contáctanos a través del formulario o llama a nuestro número de soporte.</td>
                     </tr>
-                    <!-- Agrega más preguntas y respuestas aquí -->
                 </tbody>
             </table>
         </section>
     </div>
+
+    <script>
+        // Manejo del formulario de contacto con AJAX (Fetch API)
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevenir el comportamiento por defecto (enviar formulario)
+
+            // Obtención de los datos del formulario
+            const formData = new FormData(this);
+
+            // Enviar los datos a Formspree usando Fetch API
+            fetch('https://formspree.io/f/mqakbydy', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Ocultar el formulario y mostrar el mensaje de confirmación
+                document.getElementById('formulario-contacto').style.display = 'none';
+                document.getElementById('confirmacion').style.display = 'block';
+
+                // Regresar a la sección de ayuda después de 3 segundos
+                setTimeout(function() {
+                    document.getElementById('confirmacion').style.display = 'none';
+                    document.getElementById('formulario-contacto').style.display = 'block';
+                }, 3000);
+            })
+            .catch(error => {
+                console.error('Error al enviar el formulario:', error);
+            });
+        });
+    </script>
+
     <script src="javascript/ayuda.js"></script>
-
 </body>
-
-

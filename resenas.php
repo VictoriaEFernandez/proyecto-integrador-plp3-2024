@@ -51,6 +51,7 @@ $resultado = $conn->query($sql_select);
 <?php endif; ?>
 
 <!-- Sección para dejar reseñas -->
+ <link rel="stylesheet" href="css/estilos-resenas.css">
 <section class="seccion-resenas">
     <h2>Deja tu Reseña</h2>
     <form id="resena-form" method="POST" action="index.php">
